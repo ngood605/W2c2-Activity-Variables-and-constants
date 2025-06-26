@@ -1,0 +1,23 @@
+section .text
+        global _start
+
+_start:
+        ;use this space for the main body of your program
+   	;======== write your code below ===========
+        
+        mov eax, [var1]     ; Load var1 (10) into eax
+        mov ebx, [var2]     ; Load var2 (15) into ebx
+        add eax, ebx        ; Add eax and ebx
+        mov [result], eax   ; Store the result in 'result'
+        
+   	;======== write your code above ===========
+        
+        mov eax, 1	;set eax register to 1 (do not remove this line)
+        int 0x80	;interrupt 0x80 (do not remove this line)
+
+section .bss
+        result resd 1       ; Uninitialized variable to store result
+
+section .data
+        var1 dd 10          ; Initialized variable var1 = 10
+        var2 dd 15          ; Initialized variable var2 = 15
